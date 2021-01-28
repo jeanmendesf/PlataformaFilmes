@@ -1,0 +1,12 @@
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Data\bin\Debug\netcoreapp3.1\PlataformaFilmes.Data.deps.json
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Data\bin\Debug\netcoreapp3.1\PlataformaFilmes.Data.dll
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Data\bin\Debug\netcoreapp3.1\PlataformaFilmes.Data.pdb
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Data\bin\Debug\netcoreapp3.1\PlataformaFilmes.Model.dll
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Data\bin\Debug\netcoreapp3.1\PlataformaFilmes.Model.pdb
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Data\obj\Debug\netcoreapp3.1\PlataformaFilmes.Data.csprojAssemblyReference.cache
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Data\obj\Debug\netcoreapp3.1\PlataformaFilmes.Data.AssemblyInfoInputs.cache
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Data\obj\Debug\netcoreapp3.1\PlataformaFilmes.Data.AssemblyInfo.cs
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Data\obj\Debug\netcoreapp3.1\PlataformaFilmes.Data.csproj.CoreCompileInputs.cache
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Data\obj\Debug\netcoreapp3.1\PlataformaFilmes.Data.csproj.CopyComplete
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Data\obj\Debug\netcoreapp3.1\PlataformaFilmes.Data.dll
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Data\obj\Debug\netcoreapp3.1\PlataformaFilmes.Data.pdb

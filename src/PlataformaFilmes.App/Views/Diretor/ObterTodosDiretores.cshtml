@@ -1,0 +1,38 @@
+﻿@model IEnumerable<PlataformaFilmes.Model.Model.Diretor>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+</head>
+
+<body>
+    <h2>Lista de Diretores</h2>
+    <a asp-action="adicionar" asp-controller="Diretor" class="btn btn-primary">Adicionar diretor</a>
+    <p></p>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Id)</th>
+                    <th>@Html.DisplayNameFor(model => model.Nome)</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => item.Id)</td>
+                    <td>@Html.DisplayFor(model => item.Nome)</td>
+                    <td>
+                        <button type="button" class="btn btn-primary">Filmes</button>
+                        @Html.ActionLink("Editar", "AtualizarDiretor", "Diretor", new { id = item.Id }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Deletar", "DeletarDiretor", "Diretor", new { id = item.Id }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+</body>
+</html>

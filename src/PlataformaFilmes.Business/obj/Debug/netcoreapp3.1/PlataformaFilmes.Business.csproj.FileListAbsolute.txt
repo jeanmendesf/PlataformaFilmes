@@ -1,0 +1,9 @@
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Business\bin\Debug\netcoreapp3.1\PlataformaFilmes.Business.deps.json
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Business\bin\Debug\netcoreapp3.1\PlataformaFilmes.Business.dll
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Business\bin\Debug\netcoreapp3.1\PlataformaFilmes.Business.pdb
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Business\obj\Debug\netcoreapp3.1\PlataformaFilmes.Business.csprojAssemblyReference.cache
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Business\obj\Debug\netcoreapp3.1\PlataformaFilmes.Business.AssemblyInfoInputs.cache
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Business\obj\Debug\netcoreapp3.1\PlataformaFilmes.Business.AssemblyInfo.cs
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Business\obj\Debug\netcoreapp3.1\PlataformaFilmes.Business.csproj.CoreCompileInputs.cache
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Business\obj\Debug\netcoreapp3.1\PlataformaFilmes.Business.dll
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Business\obj\Debug\netcoreapp3.1\PlataformaFilmes.Business.pdb

@@ -1,0 +1,27 @@
+﻿@model PlataformaFilmes.Model.Model.Diretor
+<!DOCTYPE html>
+
+<html>
+<head>
+
+</head>
+
+<body>
+    <h2>Adicionar diretor</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-action="adicionar" asp-controller="Diretor" method="post">
+                <div class="col-md-8">
+                    <label asp-for="Nome" class="control-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <p></p>
+                <input type="submit" value="Adicionar" class="btn btn-primary" />
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
