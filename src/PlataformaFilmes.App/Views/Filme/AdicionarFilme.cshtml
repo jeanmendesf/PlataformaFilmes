@@ -1,0 +1,40 @@
+﻿@model PlataformaFilmes.Model.Model.Filme
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+    <h2>Adicionar Filme</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-controller="Filme" asp-action="adicionar" method="post">
+                <div class="col-md-8">
+                    <label asp-for="Nome" class="control-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Descricao" class="control-label"></label>
+                    <input asp-for="Descricao" class="form-control" />
+                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                </div>
+                <div class="col-md-8">
+                    <label asp-for="Diretor.Nome" class="control-label"></label>
+                    <input asp-for="Diretor.Nome" class="form-control" />
+                    <span asp-validation-for="Diretor.Nome" class="text-danger"></span>
+                </div>
+                <div class="col-md-8">
+                    <label asp-for="Categorias" class="control-label"></label>
+                    <input asp-for="Categorias" class="form-control" />
+                    <span asp-validation-for="Categorias" class="text-danger"></span>
+                </div>
+                <hr />
+                <input type="submit" value="Adicionar" class="btn btn-primary" />
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

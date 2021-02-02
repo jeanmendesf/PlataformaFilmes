@@ -108,5 +108,31 @@ namespace PlataformaFilmes.Data.DAL
                 connection.Close();
             }
         }
+
+
+
+        public Diretor ObterDiretorPorNome(string nome )
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                Diretor diretor = new Diretor();
+
+                SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.tbl_Diretor WHERE Nome = '" + nome + "'", connection);
+                cmd.CommandType = CommandType.Text;
+
+                connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    diretor.Id = Convert.ToInt32(reader["Id"]);
+                    diretor.Nome = reader["Nome"].ToString();
+                }
+                return diretor;
+            }
+        }
+
+
+        
     }
 }

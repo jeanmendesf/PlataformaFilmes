@@ -1,0 +1,43 @@
+﻿@model IEnumerable<PlataformaFilmes.Model.Model.Filme>
+<!DOCTYPE html>
+
+<html>
+<head>
+</head>
+
+<body>
+    <h2>Lista de filmes</h2>
+    <a asp-controller="Filme" asp-action="adicionar" class="btn btn-primary">Adicionar filme</a>
+    <hr />
+
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Id)</th>
+                    <th>@Html.DisplayNameFor(model => model.Nome)</th>
+                    <th>@Html.DisplayNameFor(model => model.Descricao)</th>
+                    <th>@Html.DisplayNameFor(model => model.Diretor)</th>
+                    <th>@Html.DisplayNameFor(model => model.Categorias)</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => item.Id)</td>
+                    <td>@Html.DisplayFor(model => item.Nome)</td>
+                    <td>@Html.DisplayFor(model => item.Descricao)</td>
+                    <td>@Html.DisplayFor(model => item.Diretor.Nome)</td>
+                    <td>@Html.DisplayFor(model => item.Categorias)</td>
+                    <td>
+                        @Html.ActionLink("Editar", "AtualizarFilme", "Filme", new { id = item.Id }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Excluir", "DeletarFilme", "Filme", new { id = item.Id }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+</body>
+</html>
