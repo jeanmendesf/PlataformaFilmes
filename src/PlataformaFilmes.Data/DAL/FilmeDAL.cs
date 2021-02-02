@@ -51,6 +51,7 @@ namespace PlataformaFilmes.Data.DAL
                 SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.tbl_Filme WHERE Id =" + id, connection);
                 cmd.CommandType = CommandType.Text;
 
+
                 connection.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 DiretorDAL diretorDAL = new DiretorDAL();
