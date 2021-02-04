@@ -37,14 +37,14 @@ namespace PlataformaFilmes.App.Controllers
         public async Task<IActionResult> AdicionarFilme()
         {
             Filme filme = new Filme();
+            filme.Diretores = _diretorDAL.ObterTodosDiretores();
             return View(filme);
         }
         [HttpPost]
         [Route("adicionar")]
         public async Task<IActionResult> AdicionarFilme(Filme filme)
         {
-            filme.Diretor = _diretorDAL.ObterDiretorPorNome(filme.Diretor.Nome);
-            filme.DiretorId = filme.Diretor.Id;
+            filme.Diretores = _diretorDAL.ObterTodosDiretores();
             _filmeDAL.AdicionarFilme(filme);
             return RedirectToAction("obter", "Filme");
         }

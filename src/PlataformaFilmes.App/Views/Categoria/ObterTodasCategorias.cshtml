@@ -1,0 +1,36 @@
+﻿@model IEnumerable<PlataformaFilmes.Model.Model.Categoria>
+<!DOCTYPE html>
+
+<html>
+<head></head>
+<body>
+    <h2>Lista de categorias</h2>
+    <a asp-controller="Categoria" asp-action="adicionar" class="btn btn-primary">Adicionar Categoria</a>
+    <hr />
+
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Id)</th>
+                    <th>@Html.DisplayNameFor(model => model.Nome)</th>
+                    <th>@Html.DisplayNameFor(model => model.Descricao)</th>
+                </tr>
+            </thead>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => item.Id)</td>
+                    <td>@Html.DisplayFor(model => item.Nome)</td>
+                    <td>@Html.DisplayFor(model => item.Descricao)</td>
+                    <td>
+                        <button class="btn btn-primary">Editar</button>
+                        <button class="btn btn-danger">Excluir</button>
+                    </td>
+                </tr>
+            }
+        </table>
+
+    </div>
+</body>
+</html>

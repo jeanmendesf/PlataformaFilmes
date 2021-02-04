@@ -29,12 +29,17 @@ C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Deb
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\PlataformaFilmes.App.TagHelpers.input.cache
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\PlataformaFilmes.App.TagHelpers.output.cache
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\PlataformaFilmes.App.RazorCoreGenerate.cache
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\AdicionarCategoria.cshtml.g.cs
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\ObterTodasCategorias.cshtml.g.cs
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\Razor\Views\Diretor\AdicionarDiretor.cshtml.g.cs
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\Razor\Views\Diretor\AtualizarDiretor.cshtml.g.cs
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\Razor\Views\Diretor\DeletarDiretor.cshtml.g.cs
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\Razor\Views\Diretor\ObterTodosDiretores.cshtml.g.cs
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\Razor\Views\Filme\AdicionarFilme.cshtml.g.cs
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\Razor\Views\Filme\AtualizarFilme.cshtml.g.cs
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\Razor\Views\Filme\DeletarFilme.cshtml.g.cs
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\Razor\Views\Filme\ObterTodosFilmes.cshtml.g.cs
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\Razor\Views\Filme\_AdicionarDiretor.cshtml.g.cs
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
@@ -51,5 +56,3 @@ C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Deb
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\PlataformaFilmes.App.dll
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\PlataformaFilmes.App.pdb
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\PlataformaFilmes.App.genruntimeconfig.cache
-C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\Razor\Views\Filme\AtualizarFilme.cshtml.g.cs
-C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\Razor\Views\Filme\DeletarFilme.cshtml.g.cs

@@ -15,5 +15,9 @@ namespace PlataformaFilmes.Model.Model
         public List<Categoria> Categorias { get; set; }
         public Diretor Diretor { get; set; }
         public int DiretorId { get; set; }
+
+
+        //Uso temporario.
+        public IEnumerable<Diretor> Diretores { get; set; }
     }
 }

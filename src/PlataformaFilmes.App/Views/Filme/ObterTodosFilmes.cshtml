@@ -28,16 +28,22 @@
                     <td>@Html.DisplayFor(model => item.Nome)</td>
                     <td>@Html.DisplayFor(model => item.Descricao)</td>
                     <td>@Html.DisplayFor(model => item.Diretor.Nome)</td>
-                    <td>@Html.DisplayFor(model => item.Categorias)</td>
+                    <td><button class="btn btn-primary">Categorias</button></td>
                     <td>
                         @Html.ActionLink("Editar", "AtualizarFilme", "Filme", new { id = item.Id }, new { @class = "btn btn-primary" })
                         @Html.ActionLink("Excluir", "DeletarFilme", "Filme", new { id = item.Id }, new { @class = "btn btn-danger" })
                     </td>
                 </tr>
             }
-
         </table>
     </div>
+
+   
+
+     
+        
+
+
 
 </body>
 </html>

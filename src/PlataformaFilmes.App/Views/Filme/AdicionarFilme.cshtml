@@ -20,9 +20,11 @@
                     <input asp-for="Descricao" class="form-control" />
                     <span asp-validation-for="Descricao" class="text-danger"></span>
                 </div>
-                <div class="col-md-8">
-                    <label asp-for="Diretor.Nome" class="control-label"></label>
-                    <input asp-for="Diretor.Nome" class="form-control" />
+                <div class="col-md-8">                    
+                    <label asp-for="DiretorId" class="control-label">Diretor</label>
+                    <select asp-for="DiretorId" class="form-control" asp-items="@(new SelectList(Model.Diretores,"Id","Nome"))">
+                        <option></option>
+                    </select>
                     <span asp-validation-for="Diretor.Nome" class="text-danger"></span>
                 </div>
                 <div class="col-md-8">
@@ -35,6 +37,5 @@
             </form>
         </div>
     </div>
-
 </body>
 </html>

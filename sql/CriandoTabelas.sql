@@ -29,10 +29,16 @@ CREATE TABLE tbl_Categoria(
 --Entidade associativa entre Filme e Categoria===================================
 USE db_PlataformaVideos
 CREATE TABLE tbl_Filme_Categoria(
-	Id INT PRIMARY KEY IDENTITY NOT NULL,
-	FilmeId INT NOT NULL,
-	CategoriaId INT NOT NULL)
+	Id INT PRIMARY KEY IDENTITY NOT NULL)
 
-
-
+ALTER TABLE tbl_Filme_Categoria
+	ADD FilmeId INT NOT NULL
+	CONSTRAINT fk_Filme
+	FOREIGN KEY (FilmeId)
+	REFERENCES tbl_Filme(Id)
+ALTER TABLE tbl_Filme_Categoria
+	ADD CategoriaId INT NOT NULL
+	CONSTRAINT fk_Categoria
+	FOREIGN KEY (CategoriaId)
+	REFERENCES tbl_Categoria(Id)
 
