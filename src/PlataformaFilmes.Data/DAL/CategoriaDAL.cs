@@ -12,7 +12,7 @@ namespace PlataformaFilmes.Data.DAL
         string connectionString = @"Data Source =  DESKTOP-9D3IEDO\SQLEXPRESS01;
                                     Initial Catalog = db_PlataformaVideos; Integrated Security=True";
 
-        public IEnumerable<Categoria> ObterTodasCategorias()
+        public List<Categoria> ObterTodasCategorias()
         {
             List<Categoria> lstCategorias = new List<Categoria>();
 

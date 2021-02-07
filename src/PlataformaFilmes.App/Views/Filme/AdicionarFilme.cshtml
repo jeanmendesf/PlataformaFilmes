@@ -17,19 +17,21 @@
                 </div>
                 <div class="col-md-6">
                     <label asp-for="Descricao" class="control-label"></label>
-                    <input asp-for="Descricao" class="form-control" />
+                    <textarea asp-for="Descricao" class="form-control form-label"></textarea>
                     <span asp-validation-for="Descricao" class="text-danger"></span>
                 </div>
-                <div class="col-md-8">                    
+                <div class="col-md-8">
                     <label asp-for="DiretorId" class="control-label">Diretor</label>
                     <select asp-for="DiretorId" class="form-control" asp-items="@(new SelectList(Model.Diretores,"Id","Nome"))">
                         <option></option>
                     </select>
-                    <span asp-validation-for="Diretor.Nome" class="text-danger"></span>
+                    <span asp-validation-for="DiretorId" class="text-danger"></span>
                 </div>
                 <div class="col-md-8">
                     <label asp-for="Categorias" class="control-label"></label>
-                    <input asp-for="Categorias" class="form-control" />
+                    <select asp-for="Categorias" class="form-control" asp-items="@(new SelectList(Model.Categorias, "Id", "Nome"))" multiple>
+                        <option></option>
+                    </select>
                     <span asp-validation-for="Categorias" class="text-danger"></span>
                 </div>
                 <hr />

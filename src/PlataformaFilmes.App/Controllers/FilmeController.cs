@@ -13,11 +13,12 @@ namespace PlataformaFilmes.App.Controllers
     {
         readonly FilmeDAL _filmeDAL;
         readonly DiretorDAL _diretorDAL;
-
+        readonly CategoriaDAL _categoriaDAL;
         public FilmeController()
         {
             _filmeDAL = new FilmeDAL();
             _diretorDAL = new DiretorDAL();
+            _categoriaDAL = new CategoriaDAL();
         }
 
 
@@ -37,6 +38,7 @@ namespace PlataformaFilmes.App.Controllers
         public async Task<IActionResult> AdicionarFilme()
         {
             Filme filme = new Filme();
+            filme.Categorias = _categoriaDAL.ObterTodasCategorias();
             filme.Diretores = _diretorDAL.ObterTodosDiretores();
             return View(filme);
         }
@@ -44,7 +46,9 @@ namespace PlataformaFilmes.App.Controllers
         [Route("adicionar")]
         public async Task<IActionResult> AdicionarFilme(Filme filme)
         {
+            filme.Categorias = _categoriaDAL.ObterTodasCategorias();
             filme.Diretores = _diretorDAL.ObterTodosDiretores();
+                        
             _filmeDAL.AdicionarFilme(filme);
             return RedirectToAction("obter", "Filme");
         }

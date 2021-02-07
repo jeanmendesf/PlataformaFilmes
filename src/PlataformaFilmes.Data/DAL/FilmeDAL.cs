@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
+using System.Transactions;
 
 namespace PlataformaFilmes.Data.DAL
 {
@@ -56,7 +57,7 @@ namespace PlataformaFilmes.Data.DAL
                 SqlDataReader reader = cmd.ExecuteReader();
                 DiretorDAL diretorDAL = new DiretorDAL();
 
-                while(reader.Read())
+                while (reader.Read())
                 {
                     filme.Id = Convert.ToInt32(reader["Id"]);
                     filme.Nome = reader["Nome"].ToString();
@@ -71,23 +72,53 @@ namespace PlataformaFilmes.Data.DAL
 
         public void AdicionarFilme(Filme filme)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (var transactionScope = new TransactionScope(TransactionScopeOption.RequiresNew))
             {
-                SqlCommand cmd = new SqlCommand("INSERT INTO dbo.tbl_Filme(Nome, Descricao, DiretorId) " +
-                    "VALUES (@Nome, @Descricao, @DiretorId )", connection);
-                cmd.CommandType = CommandType.Text;
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        SqlCommand cmd = new SqlCommand("INSERT INTO dbo.tbl_Filme(Nome, Descricao, DiretorId) " +
+                            "VALUES (@Nome, @Descricao, @DiretorId)" +
+                            "SELECT SCOPE_IDENTITY() AS [ultimoID];", connection);
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@Nome", filme.Nome);
+                        cmd.Parameters.AddWithValue("@Descricao", filme.Descricao);
+                        cmd.Parameters.AddWithValue("@DiretorId", filme.DiretorId);
 
-                cmd.Parameters.AddWithValue("@Nome", filme.Nome);
-                cmd.Parameters.AddWithValue("@Descricao", filme.Descricao);
-                cmd.Parameters.AddWithValue("@DiretorId", filme.DiretorId);
+                        connection.Open();
+                        //Adicionando Filme
+                        //cmd.ExecuteNonQuery();
 
-                connection.Open();
-                cmd.ExecuteNonQuery();
-                connection.Close();
+                        //Relacionando Filme e Categoria
+                        int ultimoId = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        SqlCommand cmd2 = new SqlCommand("INSERT INTO dbo.tbl_Filme_Categoria(FilmeId, CategoriaId)" +
+                                                "VALUES (@FilmeId, @CategoriaId)", connection);
+
+                        cmd2.CommandType = CommandType.Text;
+
+                        foreach (Categoria categoria in filme.Categorias)
+                        {
+                            cmd2.Parameters.AddWithValue("@FilmeId", ultimoId);
+                            cmd2.Parameters.AddWithValue("@CategoriaId", categoria.Id);
+                            cmd2.ExecuteNonQuery();
+                            cmd2.Parameters.Clear();
+                        }
+
+                        transactionScope.Complete();
+                        connection.Close();
+                    }
+                }
+                catch (Exception)
+                {
+                    transactionScope.Dispose();
+                }
             }
         }
-    
-    
+
+
+
         public void AtualizarFilme(Filme filme)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -106,8 +137,8 @@ namespace PlataformaFilmes.Data.DAL
                 connection.Close();
             }
         }
- 
-    
+
+
         public void DeletarFilme(int id)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -118,9 +149,29 @@ namespace PlataformaFilmes.Data.DAL
                 cmd.Parameters.AddWithValue("@Id", id);
 
                 connection.Open();
+                DeletarReferencia(id);
                 cmd.ExecuteNonQuery();
                 connection.Close();
             }
         }
+
+
+    public void DeletarReferencia(int filmeId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("DELETE FROM dbo.tbl_Filme_Categoria WHERE FilmeId = @filmeId", connection);
+                cmd.CommandType = CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@filmeId", filmeId);
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+
+
+
     }
 }
