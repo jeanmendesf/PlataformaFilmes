@@ -65,6 +65,37 @@ namespace PlataformaFilmes.Data.DAL
         }
 
 
+        public List<Categoria> ObterListaCategoriaPorId(int[] idCategorias)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                List<Categoria> lstCategorias = new List<Categoria>();                 
+                connection.Open();
+                foreach (int  idCategoria in idCategorias)
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.tbl_Categoria WHERE Id =" + idCategoria, connection);
+                    cmd.CommandType = CommandType.Text;
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    Categoria categoria = new Categoria();
+
+                    while (reader.Read())
+                    {
+                        categoria.Id = Convert.ToInt32(reader["Id"]);
+                        categoria.Nome = reader["Nome"].ToString();
+                        categoria.Descricao = reader["Descricao"].ToString();
+                        //categoria.Filmes = metodoPegarFilmePorCategoria
+                    }
+
+                    lstCategorias.Add(categoria);
+                    reader.Close();
+                }
+                connection.Close();
+                return lstCategorias;
+            }
+        }
+
+
         public void AdicionarCategoria(Categoria categoria)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))

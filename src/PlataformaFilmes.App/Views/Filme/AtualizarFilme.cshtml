@@ -20,13 +20,21 @@
                     <span asp-validation-for="Descricao" class="text-danger"></span>
                 </div>
                 <div class="col-md-8">
-                    <label asp-for="Diretor" class="control-label"></label>
-                    <input asp-for="Diretor.Nome" class="form-control" />
-                    <span asp-validation-for="Diretor.Nome" class="text-danger"></span>
+                    <label asp-for="DiretorId" class="control-label">Diretor</label>
+                    <select asp-for="DiretorId" class="form-control" asp-items="@(new SelectList(Model.Diretores,"Id","Nome"))">
+                        <option></option>
+                    </select>
+                    <span asp-validation-for="DiretorId" class="text-danger"></span>
                 </div>
                 <div class="col-md-8">
                     <label asp-for="Categorias" class="control-label"></label>
-                    <input asp-for="Categorias" class="form-control" />
+                    <select asp-for="Categorias" class="form-control" multiple>
+                        <option></option>
+                        @foreach (var categoria in Model.Categorias)
+                        {
+                            <option value="@categoria.Id">@categoria.Nome</option>
+                        }
+                    </select>
                     <span asp-validation-for="Categorias" class="text-danger"></span>
                 </div>
 
