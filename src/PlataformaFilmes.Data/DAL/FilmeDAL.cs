@@ -148,71 +148,71 @@ namespace PlataformaFilmes.Data.DAL
             }
         }
 
-            public void DeletarFilme(int id)
+        public void DeletarFilme(int id)
+        {
+            using (var transactionScope = new TransactionScope(TransactionScopeOption.RequiresNew))
             {
-                using (var transactionScope = new TransactionScope(TransactionScopeOption.RequiresNew))
+                try
                 {
-                    try
+                    using (SqlConnection connection = new SqlConnection(connectionString))
                     {
-                        using (SqlConnection connection = new SqlConnection(connectionString))
-                        {
-                            SqlCommand cmd = new SqlCommand("DELETE FROM dbo.tbl_Filme WHERE Id = @id", connection);
-                            cmd.CommandType = CommandType.Text;
+                        SqlCommand cmd = new SqlCommand("DELETE FROM dbo.tbl_Filme WHERE Id = @id", connection);
+                        cmd.CommandType = CommandType.Text;
 
-                            cmd.Parameters.AddWithValue("@Id", id);
+                        cmd.Parameters.AddWithValue("@Id", id);
 
-                            DeletarReferencia(id);
-                            connection.Open();
-                            cmd.ExecuteNonQuery();
-                            connection.Close();
-                            transactionScope.Complete();
-                        }
-                    }
-                    catch (Exception)
-                    {
-                        transactionScope.Dispose();
+                        DeletarReferencia(id);
+                        connection.Open();
+                        cmd.ExecuteNonQuery();
+                        connection.Close();
+                        transactionScope.Complete();
                     }
                 }
-            }
-
-
-            public void DeletarReferencia(int filmeId)
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                catch (Exception)
                 {
-                    SqlCommand cmd2 = new SqlCommand("DELETE FROM dbo.tbl_Filme_Categoria WHERE FilmeId = @filmeId", connection);
-                    cmd2.CommandType = CommandType.Text;
-
-                    cmd2.Parameters.AddWithValue("@filmeId", filmeId);
-
-                    connection.Open();
-                    cmd2.ExecuteNonQuery();
-                    connection.Close();
-                }
-            }
-
-            public void AtualizarReferencia(List<Categoria> categorias, int filmeId)
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    SqlCommand deletarReferencias = new SqlCommand("DELETE FROM dbo.tbl_Filme_Categoria WHERE FilmeId =" + filmeId, connection);
-                    deletarReferencias.CommandType = CommandType.Text;
-
-                    SqlCommand adicionarReferencia = new SqlCommand("INSERT INTO dbo.tbl_Filme_Categoria(FilmeId, CategoriaId)" +
-                                                    "VALUES (@FilmeId, @CategoriaId)", connection);
-                    adicionarReferencia.CommandType = CommandType.Text;
-
-                    connection.Open();
-                    deletarReferencias.ExecuteNonQuery();
-                    foreach (Categoria categoria in categorias)
-                    {
-                        adicionarReferencia.Parameters.AddWithValue("@FilmeId", filmeId);
-                        adicionarReferencia.Parameters.AddWithValue("@CategoriaId", categoria.Id);
-                        adicionarReferencia.ExecuteNonQuery();
-                        adicionarReferencia.Parameters.Clear();
-                    }
-                    connection.Close();
+                    transactionScope.Dispose();
                 }
             }
         }
+
+
+        public void DeletarReferencia(int filmeId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd2 = new SqlCommand("DELETE FROM dbo.tbl_Filme_Categoria WHERE FilmeId = @filmeId", connection);
+                cmd2.CommandType = CommandType.Text;
+
+                cmd2.Parameters.AddWithValue("@filmeId", filmeId);
+
+                connection.Open();
+                cmd2.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+
+        public void AtualizarReferencia(List<Categoria> categorias, int filmeId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand deletarReferencias = new SqlCommand("DELETE FROM dbo.tbl_Filme_Categoria WHERE FilmeId =" + filmeId, connection);
+                deletarReferencias.CommandType = CommandType.Text;
+
+                SqlCommand adicionarReferencia = new SqlCommand("INSERT INTO dbo.tbl_Filme_Categoria(FilmeId, CategoriaId)" +
+                                                "VALUES (@FilmeId, @CategoriaId)", connection);
+                adicionarReferencia.CommandType = CommandType.Text;
+
+                connection.Open();
+                deletarReferencias.ExecuteNonQuery();
+                foreach (Categoria categoria in categorias)
+                {
+                    adicionarReferencia.Parameters.AddWithValue("@FilmeId", filmeId);
+                    adicionarReferencia.Parameters.AddWithValue("@CategoriaId", categoria.Id);
+                    adicionarReferencia.ExecuteNonQuery();
+                    adicionarReferencia.Parameters.Clear();
+                }
+                connection.Close();
+            }
+        }
     }
+}

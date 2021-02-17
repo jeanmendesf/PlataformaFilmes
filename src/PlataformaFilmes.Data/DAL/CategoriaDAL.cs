@@ -65,7 +65,8 @@ namespace PlataformaFilmes.Data.DAL
         }
 
 
-        public List<Categoria> ObterListaCategoriaPorId(int[] idCategorias)
+        //Obtem mais de uma categoria passando uma lista de Ids
+        public List<Categoria> ObterListaCategoriaPorId(List<int> idCategorias)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -115,16 +116,37 @@ namespace PlataformaFilmes.Data.DAL
 
 
 
+        //Pega todas categorias que tenham um filme de id 'N'
+        public List<Categoria> ObterCategoriaPorFilme(int FilmeId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                List<int> lstIdsCategorias = new List<int>();
 
-        //public IEnumerable<Filme> ObterFilmePorCategoria(int idCategoria)
-        //{
-        //    List<Filme> lstFilmes = new List<Filme>();
+                SqlCommand cmd = new SqlCommand("SELECT CategoriaId FROM dbo.tbl_Filme_Categoria WHERE FilmeId = " + FilmeId, connection);
+                cmd.CommandType = CommandType.Text;
 
-        //    using (SqlConnection connection = new SqlConnection(connectionString))
-        //    {
+                connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
 
-        //    }
-        //}
+                while (reader.Read())
+                {
+                    int idCategoria = new int();
+
+                    idCategoria = Convert.ToInt32(reader["CategoriaId"]);
+
+                    lstIdsCategorias.Add(idCategoria);
+                    
+                }
+                connection.Close();
+                List<Categoria> lstCategorias = new List<Categoria>();
+                lstCategorias = ObterListaCategoriaPorId(lstIdsCategorias);
+
+                return lstCategorias;
+            }
+        }
+
+
 
     }
 }

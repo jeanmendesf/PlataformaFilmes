@@ -34,7 +34,8 @@
                 </div>
                 <hr />
                 @Html.DropDownList("CategoriaId", (MultiSelectList)ViewBag.CategoriaId, new { multiple = "multiple" })
-
+                <hr />
+                <a asp-action="obter" class="btn btn-primary">Voltar</a>
                 <input type="submit" value="Adicionar" class="btn btn-primary" />
             </form>
 
