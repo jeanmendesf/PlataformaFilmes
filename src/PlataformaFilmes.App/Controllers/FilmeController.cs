@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using PlataformaFilmes.Data.DAL;
 using PlataformaFilmes.Model.Model;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PlataformaFilmes.App.Controllers
 {
@@ -38,18 +37,26 @@ namespace PlataformaFilmes.App.Controllers
         public async Task<IActionResult> AdicionarFilme()
         {
             Filme filme = new Filme();
-            filme.Categorias = _categoriaDAL.ObterTodasCategorias();
             filme.Diretores = _diretorDAL.ObterTodosDiretores();
+
+            List<Categoria> TodasCategorias = _categoriaDAL.ObterTodasCategorias();
+            ViewBag.CategoriaId = new MultiSelectList
+                (
+                    TodasCategorias, "Id", "Nome"
+                );
+
             return View(filme);
         }
         [HttpPost]
         [Route("adicionar")]
-        public async Task<IActionResult> AdicionarFilme(Filme filme)
+        public async Task<IActionResult> AdicionarFilme(Filme filme, List<int> CategoriaId)
         {
-            filme.Categorias = _categoriaDAL.ObterTodasCategorias();
+            
+
+            filme.Categorias = _categoriaDAL.ObterListaCategoriaPorId(CategoriaId);
             filme.Diretores = _diretorDAL.ObterTodosDiretores();
-                        
             _filmeDAL.AdicionarFilme(filme);
+
             return RedirectToAction("obter", "Filme");
         }
 
@@ -59,14 +66,41 @@ namespace PlataformaFilmes.App.Controllers
         public async Task<IActionResult> AtualizarFilme(int id)
         {
             Filme filme = _filmeDAL.ObterFilmePorId(id);
+            filme.Categorias = _categoriaDAL.ObterCategoriaPorFilme(id);
+
+            List<Categoria> TodasCategorias = _categoriaDAL.ObterTodasCategorias();
+            int[] lstIdCategorias = new int[filme.Categorias.Count];
+            int i = 0;
+
+            foreach (Categoria categoria in filme.Categorias)
+            {
+                lstIdCategorias[i] = categoria.Id;
+                i++;
+            }
+
+            ViewBag.CategoriaId = new MultiSelectList
+                (
+                    TodasCategorias, "Id", "Nome", lstIdCategorias
+                ) ;
+
+            
+            filme.Diretores = _diretorDAL.ObterTodosDiretores();
+
             return View(filme);
         }
         [HttpPost]
         [Route("atualizar/{id:int}")]
-        public async Task<IActionResult> AtualizarFilme(Filme filme)
+        public async Task<IActionResult> AtualizarFilme(Filme filme, List<int> CategoriaId)
         {
-            filme.Diretor = _diretorDAL.ObterDiretorPorNome(filme.Diretor.Nome);
-            filme.DiretorId = filme.Diretor.Id;
+            filme.Diretores = _diretorDAL.ObterTodosDiretores();
+            filme.Categorias = _categoriaDAL.ObterListaCategoriaPorId(CategoriaId);
+
+            List<Categoria> TodasCategorias = _categoriaDAL.ObterTodasCategorias();
+            ViewBag.CategoriaId = new MultiSelectList
+                (
+                    TodasCategorias, "Id", "Nome", filme.Categorias
+                );
+
             _filmeDAL.AtualizarFilme(filme);
             return RedirectToAction("obter", "Filme");
         }

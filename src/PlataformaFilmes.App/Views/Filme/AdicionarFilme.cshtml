@@ -22,22 +22,35 @@
                 </div>
                 <div class="col-md-8">
                     <label asp-for="DiretorId" class="control-label">Diretor</label>
-                    <select asp-for="DiretorId" class="form-control" asp-items="@(new SelectList(Model.Diretores,"Id","Nome"))">
+                    <select asp-for="DiretorId" class="form-control" asp-items="@(new SelectList(Model.Diretores, "Id", "Nome"))">
                         <option></option>
                     </select>
                     <span asp-validation-for="DiretorId" class="text-danger"></span>
                 </div>
                 <div class="col-md-8">
                     <label asp-for="Categorias" class="control-label"></label>
-                    <select asp-for="Categorias" class="form-control" asp-items="@(new SelectList(Model.Categorias, "Id", "Nome"))" multiple>
-                        <option></option>
-                    </select>
+
                     <span asp-validation-for="Categorias" class="text-danger"></span>
                 </div>
                 <hr />
+                @Html.DropDownList("CategoriaId", (MultiSelectList)ViewBag.CategoriaId, new { multiple = "multiple" })
+                <hr />
+                <a asp-action="obter" class="btn btn-primary">Voltar</a>
                 <input type="submit" value="Adicionar" class="btn btn-primary" />
             </form>
+
+            
+
         </div>
     </div>
+
+
+
+
+    
+
+
+
+
 </body>
 </html>

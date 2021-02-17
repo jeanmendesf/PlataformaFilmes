@@ -20,18 +20,23 @@
                     <span asp-validation-for="Descricao" class="text-danger"></span>
                 </div>
                 <div class="col-md-8">
-                    <label asp-for="Diretor" class="control-label"></label>
-                    <input asp-for="Diretor.Nome" class="form-control" />
-                    <span asp-validation-for="Diretor.Nome" class="text-danger"></span>
+                    <label asp-for="DiretorId" class="control-label">Diretor</label>
+                    <select asp-for="DiretorId" class="form-control" asp-items="@(new SelectList(Model.Diretores,"Id","Nome"))">
+                        <option></option>
+                    </select>
+                    <span asp-validation-for="DiretorId" class="text-danger"></span>
                 </div>
                 <div class="col-md-8">
                     <label asp-for="Categorias" class="control-label"></label>
-                    <input asp-for="Categorias" class="form-control" />
+                    
                     <span asp-validation-for="Categorias" class="text-danger"></span>
                 </div>
 
                 <div>
                     <hr />
+                    @Html.DropDownList("CategoriaId", (MultiSelectList)ViewBag.CategoriaId, new { multiple = "multiple" })
+                    <hr />
+
                     <input type="hidden" asp-for="Id" />
                     <a asp-action="obter" class="btn btn-primary">Voltar</a>
                     <input type="submit" value="Atualizar!" class="btn btn-primary" />
