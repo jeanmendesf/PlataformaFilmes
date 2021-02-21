@@ -20,6 +20,7 @@ namespace PlataformaFilmes.App.Controllers
             _filmeDAL = new FilmeDAL();
         }
         
+
         
         [HttpGet]
         [Route("obter")]
@@ -30,6 +31,7 @@ namespace PlataformaFilmes.App.Controllers
 
             return View(categorias);
         }
+
 
 
         [HttpGet]
@@ -49,7 +51,37 @@ namespace PlataformaFilmes.App.Controllers
 
 
 
+        [HttpGet]
+        [Route("atualizar/{id:int}")]
+        public async Task<IActionResult> AtualizarCategoria(int id)
+        {
+            Categoria categoria = _categoriaDAL.ObterCategoriaPorId(id);
+            return View(categoria);
+        }
+        [HttpPost]
+        [Route("atualizar/{id:int}")]
+        public async Task<IActionResult> AtualizarCategoria(Categoria categoria)
+        {
+            _categoriaDAL.AtualizarCategoria(categoria);
+            return RedirectToAction("obter", "Categoria");
+        }
 
+
+
+        [HttpGet]
+        [Route("deletar/{id:int}")]
+        public async Task<IActionResult> DeletarCategoria(int id)
+        {
+            Categoria categoria = _categoriaDAL.ObterCategoriaPorId(id);
+            return View(categoria);
+        }
+        [HttpPost]
+        [Route("deletar/{id:int}")]
+        public async Task<IActionResult> DeletarCategoria(Categoria categoria)
+        {
+            _categoriaDAL.DeletarCategoria(categoria.Id);
+            return RedirectToAction("obter", "Categoria");
+        }
 
     }
 }

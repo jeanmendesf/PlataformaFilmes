@@ -115,7 +115,6 @@ namespace PlataformaFilmes.Data.DAL
         }
 
 
-
         public void AtualizarFilme(Filme filme)
         {
             using (var transactionScope = new TransactionScope(TransactionScopeOption.RequiresNew))
@@ -147,6 +146,7 @@ namespace PlataformaFilmes.Data.DAL
                 }
             }
         }
+
 
         public void DeletarFilme(int id)
         {
@@ -190,6 +190,7 @@ namespace PlataformaFilmes.Data.DAL
                 connection.Close();
             }
         }
+
 
         public void AtualizarReferencia(List<Categoria> categorias, int filmeId)
         {

@@ -56,3 +56,5 @@ C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Deb
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\PlataformaFilmes.App.dll
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\PlataformaFilmes.App.pdb
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\PlataformaFilmes.App.genruntimeconfig.cache
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\AtualizarCategoria.cshtml.g.cs
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.App\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\DeletarCategoria.cshtml.g.cs

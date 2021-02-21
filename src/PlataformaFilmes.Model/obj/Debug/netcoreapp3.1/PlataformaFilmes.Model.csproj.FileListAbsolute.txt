@@ -1,6 +1,7 @@
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Model\bin\Debug\netcoreapp3.1\PlataformaFilmes.Model.deps.json
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Model\bin\Debug\netcoreapp3.1\PlataformaFilmes.Model.dll
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Model\bin\Debug\netcoreapp3.1\PlataformaFilmes.Model.pdb
+C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Model\obj\Debug\netcoreapp3.1\PlataformaFilmes.Model.csprojAssemblyReference.cache
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Model\obj\Debug\netcoreapp3.1\PlataformaFilmes.Model.AssemblyInfoInputs.cache
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Model\obj\Debug\netcoreapp3.1\PlataformaFilmes.Model.AssemblyInfo.cs
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Model\obj\Debug\netcoreapp3.1\PlataformaFilmes.Model.csproj.CoreCompileInputs.cache

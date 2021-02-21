@@ -32,7 +32,6 @@ namespace PlataformaFilmes.Data.DAL
                     categoria.Id = Convert.ToInt32(reader["Id"]);
                     categoria.Nome = reader["Nome"].ToString();
                     categoria.Descricao = reader["Descricao"].ToString();
-                    //categoria.Filmes = metodoPegarFilmePorCategoria
                     lstCategorias.Add(categoria);
                 }
                 return lstCategorias;
@@ -53,12 +52,11 @@ namespace PlataformaFilmes.Data.DAL
                 SqlDataReader reader = cmd.ExecuteReader();
                 List<Filme> lstFilmes = new List<Filme>();
 
-                while(reader.Read())
+                while (reader.Read())
                 {
                     categoria.Id = Convert.ToInt32(reader["Id"]);
                     categoria.Nome = reader["Nome"].ToString();
                     categoria.Descricao = reader["Descricao"].ToString();
-                    //categoria.Filmes = metodoPegarFilmePorCategoria
                 }
                 return categoria;
             }
@@ -70,9 +68,9 @@ namespace PlataformaFilmes.Data.DAL
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                List<Categoria> lstCategorias = new List<Categoria>();                 
+                List<Categoria> lstCategorias = new List<Categoria>();
                 connection.Open();
-                foreach (int  idCategoria in idCategorias)
+                foreach (int idCategoria in idCategorias)
                 {
                     SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.tbl_Categoria WHERE Id =" + idCategoria, connection);
                     cmd.CommandType = CommandType.Text;
@@ -97,25 +95,6 @@ namespace PlataformaFilmes.Data.DAL
         }
 
 
-        public void AdicionarCategoria(Categoria categoria)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand cmd = new SqlCommand("INSERT INTO dbo.tbl_Categoria(Nome, Descricao)" +
-                                                "VALUES (@Nome, @Descricao)", connection);
-                cmd.CommandType = CommandType.Text;
-
-                cmd.Parameters.AddWithValue("@Nome", categoria.Nome);
-                cmd.Parameters.AddWithValue("@Descricao", categoria.Descricao);
-
-                connection.Open();
-                cmd.ExecuteNonQuery();
-                connection.Close();
-            }
-        }
-
-
-
         //Pega todas categorias que tenham um filme de id 'N'
         public List<Categoria> ObterCategoriaPorFilme(int FilmeId)
         {
@@ -136,7 +115,7 @@ namespace PlataformaFilmes.Data.DAL
                     idCategoria = Convert.ToInt32(reader["CategoriaId"]);
 
                     lstIdsCategorias.Add(idCategoria);
-                    
+
                 }
                 connection.Close();
                 List<Categoria> lstCategorias = new List<Categoria>();
@@ -147,6 +126,56 @@ namespace PlataformaFilmes.Data.DAL
         }
 
 
+        public void AdicionarCategoria(Categoria categoria)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("INSERT INTO dbo.tbl_Categoria(Nome, Descricao)" +
+                                                "VALUES (@Nome, @Descricao)", connection);
+                cmd.CommandType = CommandType.Text;
 
+                cmd.Parameters.AddWithValue("@Nome", categoria.Nome);
+                cmd.Parameters.AddWithValue("@Descricao", categoria.Descricao);
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+
+
+        public void AtualizarCategoria(Categoria categoria)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE dbo.tbl_Categoria SET " +
+                    "Nome=@Nome, Descricao=@Descricao WHERE Id=@Id", connection);
+                cmd.CommandType = CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@Id", categoria.Id);
+                cmd.Parameters.AddWithValue("@Nome", categoria.Nome);
+                cmd.Parameters.AddWithValue("@Descricao", categoria.Descricao);
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+        
+        
+        public void DeletarCategoria(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("DELETE FROM dbo.tbl_Categoria WHERE Id = @id", connection);
+                cmd.CommandType = CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
     }
 }

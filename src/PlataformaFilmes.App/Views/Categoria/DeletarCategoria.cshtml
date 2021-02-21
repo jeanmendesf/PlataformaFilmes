@@ -1,0 +1,32 @@
+﻿@model PlataformaFilmes.Model.Model.Categoria
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <h2>Deletar Categoria</h2>
+    <h3>Deseja mesmo deletar?</h3>
+
+    <form asp-controller="Categoria" asp-action="DeletarCategoria" method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Id)</th>
+                    <th>@Html.DisplayNameFor(model => model.Nome)</th>
+                    <th>@Html.DisplayNameFor(model => model.Descricao)</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>@Html.DisplayFor(model => model.Id)</td>
+                <td>@Html.DisplayFor(model => model.Nome)</td>
+                <td>@Html.DisplayFor(model => model.Descricao)</td>
+            </tr>
+        </table>
+
+        <a asp-controller="Categoria" asp-action="obter" class="btn btn-primary">Voltar</a>
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" class="btn btn-danger" value="Deletar"/>
+    </form> 
+</body>
+</html>

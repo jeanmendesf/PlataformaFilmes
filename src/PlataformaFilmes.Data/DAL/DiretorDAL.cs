@@ -110,7 +110,6 @@ namespace PlataformaFilmes.Data.DAL
         }
 
 
-
         public Diretor ObterDiretorPorNome(string nome )
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -132,7 +131,5 @@ namespace PlataformaFilmes.Data.DAL
             }
         }
 
-
-        
     }
 }
