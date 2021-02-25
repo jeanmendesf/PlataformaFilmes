@@ -28,7 +28,11 @@
                     <td>@Html.DisplayFor(model => item.Nome)</td>
                     <td>@Html.DisplayFor(model => item.Descricao)</td>
                     <td>@Html.DisplayFor(model => item.Diretor.Nome)</td>
-                    <td><button class="btn btn-primary">Categorias</button></td>
+                    <td>
+                        <a href="#" class="btn btn-default btnListaCategorias" data-value="@item.Id">Categorias</a>
+                        @*<button type="button" class="btn btn-primary" data-value="@item.id" data-toggle="modal" data-target="#modallstcategoria">categorias</button>*@
+
+                    </td>
                     <td>
                         @Html.ActionLink("Editar", "AtualizarFilme", "Filme", new { id = item.Id }, new { @class = "btn btn-primary" })
                         @Html.ActionLink("Excluir", "DeletarFilme", "Filme", new { id = item.Id }, new { @class = "btn btn-danger" })
@@ -40,6 +44,36 @@
 
 
 
+    <!--Modal para mostrar categorias-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="conteudoModal">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @section scripts{
+        <script>
+
+            $(document).ready(function () {
+                $(".btnListaCategorias").click(function () {
+                    var id = $(this).data("value");
+                    $("#conteudoModal").load("/Categoria/categorias/" + id,
+                        function () {
+                            $("#myModal").modal("show");
+                        });
+                })
+            });
+
+        </script>
+    }
 
 
 </body>

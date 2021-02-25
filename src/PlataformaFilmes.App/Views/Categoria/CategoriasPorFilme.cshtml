@@ -1,0 +1,32 @@
+﻿@model IEnumerable<PlataformaFilmes.Model.Model.Categoria>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @{
+        Layout = "";
+    }
+</head>
+<body>
+   <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Id)</th>
+                    <th>@Html.DisplayNameFor(model => model.Nome)</th>
+                    <th>@Html.DisplayNameFor(model => model.Descricao)</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => item.Id)</td>
+                    <td>@Html.DisplayFor(model => item.Nome)</td>
+                    <td>@Html.DisplayFor(model => item.Descricao)</td>                    
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

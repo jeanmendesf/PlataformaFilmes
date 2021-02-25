@@ -32,7 +32,7 @@ namespace PlataformaFilmes.App.Controllers
             return View(categorias);
         }
 
-
+        
 
         [HttpGet]
         [Route("adicionar")]
@@ -81,6 +81,18 @@ namespace PlataformaFilmes.App.Controllers
         {
             _categoriaDAL.DeletarCategoria(categoria.Id);
             return RedirectToAction("obter", "Categoria");
+        }
+
+
+
+        [HttpGet]
+        [Route("categorias/{id:int}")]
+        public async Task<IActionResult> CategoriasPorFilme(int id)
+        {
+            IEnumerable<Categoria> categorias;
+            categorias = _categoriaDAL.ObterCategoriaPorFilme(id);
+
+            return View(categorias);
         }
 
     }
