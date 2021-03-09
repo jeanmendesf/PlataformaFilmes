@@ -30,7 +30,6 @@ namespace PlataformaFilmes.App.Controllers
         }
 
 
-
         [HttpGet]
         [Route("adicionar")]
         public async Task<IActionResult> AdicionarDiretor()
@@ -47,7 +46,6 @@ namespace PlataformaFilmes.App.Controllers
         }
 
 
-
         [HttpGet]
         [Route("atualizar/{id:int}")]
         public async Task<IActionResult> AtualizarDiretor(int id)
@@ -62,7 +60,6 @@ namespace PlataformaFilmes.App.Controllers
             _diretorDAL.AtualizarDiretor(diretor);
             return RedirectToAction("obter", "Diretor");
         }
-
 
 
         [HttpGet]

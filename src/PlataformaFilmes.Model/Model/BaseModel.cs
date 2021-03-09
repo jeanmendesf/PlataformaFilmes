@@ -4,8 +4,10 @@ using System.Text;
 
 namespace PlataformaFilmes.Model.Model
 {
-    public class Categoria : BaseModel
-    {        
-        public string Descricao { get; set; }
+    public class BaseModel
+    {
+        public int Id { get; set; }
+        public string Nome { get; set; }
+
     }
 }

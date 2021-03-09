@@ -4,12 +4,7 @@ using System.Text;
 
 namespace PlataformaFilmes.Model.Model
 {
-    public class Diretor
+    public class Diretor : BaseModel        
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-
-
-        public List<Filme> Filmes { get; set; }
     }
 }
