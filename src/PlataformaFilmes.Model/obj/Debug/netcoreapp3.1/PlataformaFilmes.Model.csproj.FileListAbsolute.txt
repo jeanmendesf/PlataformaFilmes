@@ -6,4 +6,3 @@ C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Model\obj\D
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Model\obj\Debug\netcoreapp3.1\PlataformaFilmes.Model.csproj.CoreCompileInputs.cache
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Model\obj\Debug\netcoreapp3.1\PlataformaFilmes.Model.dll
 C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Model\obj\Debug\netcoreapp3.1\PlataformaFilmes.Model.pdb
-C:\Dev\CSharp\PlataformaFilmes\PlataformaFilmes\src\PlataformaFilmes.Model\obj\Debug\netcoreapp3.1\PlataformaFilmes.Model.csprojAssemblyReference.cache

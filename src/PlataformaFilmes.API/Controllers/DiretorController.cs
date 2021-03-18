@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using PlataformaFilmes.Data.DAL;
 using PlataformaFilmes.Model.Model;
 using PlataformaFilmes.Model.Validacao;
+using System.Collections.Generic;
 
 namespace PlataformaFilmes.API.Controllers
 {
@@ -44,7 +41,7 @@ namespace PlataformaFilmes.API.Controllers
 
 
         [HttpPost]
-        [Route("Adicionar")]
+        [Route("adicionar")]
         public ActionResult AdicionarDiretor(Diretor diretor)
         {
             if (_diretorValidacao.Validar(diretor) == true)
@@ -60,17 +57,8 @@ namespace PlataformaFilmes.API.Controllers
         }
 
 
-        [HttpDelete]
-        [Route("Deletar/{id:int}")]
-        public ActionResult DeletarDiretor(int id)
-        {
-            _diretorDAL.DeletarDiretor(id);
-            return Ok(RedirectToAction("ObterTodosDiretores"));
-        }
-
-
         [HttpPut]
-        [Route("Atualizar/{id:int}")]
+        [Route("atualizar/{id}")]
         public ActionResult AtualizarDiretor(Diretor diretor)
         {
             if (_diretorValidacao.Validar(diretor) == true)
@@ -83,5 +71,17 @@ namespace PlataformaFilmes.API.Controllers
                 return BadRequest(new { message = _diretorValidacao.MostrarNotificacoes() });
             }
         }
+
+
+        [HttpDelete]
+        [Route("deletar/{id}")]
+        public ActionResult DeletarDiretor(int id)
+        {
+            _diretorDAL.DeletarDiretor(id);
+            return Ok();
+        }
+
+
+        
     }
 }

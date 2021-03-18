@@ -18,21 +18,21 @@ namespace PlataformaFilmes.Model.Validacao
         }
 
 
-        public bool Validar(T diretor)
+        public bool Validar(T model)
         {
-            ValidarNome(diretor);
-            return DiretorValido();
+            ValidarNome(model);
+            return Valido();
         }
 
 
-        public void ValidarNome(T diretor)
+        public void ValidarNome(T model)
         {
-            if (diretor.Nome.Length < 3)
+            if (model.Nome.Length < 3)
             {
                 var notificacao = new Notificacao("O nome deve ter 3 ou mais caracteres.");
                 notificacoes.Add(notificacao);
             }
-            else if (diretor.Nome.Length > 100)
+            else if (model.Nome.Length > 100)
             {
                 var notificacao = new Notificacao("O nome deve ter 100 ou menos caracteres.");
                 notificacoes.Add(notificacao);
@@ -40,7 +40,7 @@ namespace PlataformaFilmes.Model.Validacao
         }
         
 
-        public bool DiretorValido()
+        public bool Valido()
         {
             bool valido = !notificacoes.Any();
             return valido;

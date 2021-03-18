@@ -9,6 +9,10 @@ namespace PlataformaFilmes.Model.Validacao
 {
     public class DiretorValidacao : ValidacaoBase<Diretor>
     {
-        
+        public void ValidarDiretor(Diretor diretor)
+        {
+            Validar(diretor);
+        }
+
     }
 }

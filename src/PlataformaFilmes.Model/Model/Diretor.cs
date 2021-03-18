@@ -6,5 +6,6 @@ namespace PlataformaFilmes.Model.Model
 {
     public class Diretor : BaseModel        
     {
+        public int FotoFileDiretor { get; set; }
     }
 }
