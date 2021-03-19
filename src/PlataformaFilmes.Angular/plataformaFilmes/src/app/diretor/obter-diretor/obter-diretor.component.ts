@@ -43,6 +43,7 @@ export class ObterDiretorComponent implements OnInit {
       this.service.deletarDiretor(item.id).subscribe(data => {
         alert(data.toString())
         this.atualizarListaDiretores()
+
       })
     }
   }
